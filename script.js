@@ -13,7 +13,6 @@ function main() {
         terceiroCandidato = prompt("Digite o nome do terceiro candidato: "),
         confirmacaoFinal;
         
-        
     do {
         console.log("| 1 |", primeiroCandidato, "\n| 2 |", segundoCandidato, "\n| 3 |", terceiroCandidato, "\n| 5 | Voto em branco \n| 8 | Voto nulo \n| 0 | Encerrar a votação\n");
         codigoVoto = prompt("Digite o número do seu candidato: ");
@@ -26,28 +25,41 @@ function main() {
 
         switch (codigoVoto) {
             case 1:
+                console.clear();
                 votoCandidato1++;
                 totalVotos++;
+                setTimeout(audioConfirmacao(), 500);
                 break;
             case 2:
+                console.clear();
                 votoCandidato2++;
                 totalVotos++;
+                setTimeout(audioConfirmacao(), 500);
                 break;
             case 3:
+                console.clear();
                 votoCandidato3++;
                 totalVotos++;
+                setTimeout(audioConfirmacao(), 500);
                 break;
             case 8:
+                console.clear();
                 votoEmBranco++;
                 totalVotos++;
+                setTimeout(audioConfirmacao(), 500);
                 break;
             case 0:
+                console.clear();
                 votoNulo++;
                 totalVotos++;
+                setTimeout(audioConfirmacao(), 500);
                 break;  
             case senha:
                 confirmacaoFinal = prompt(">> Deseja realmente encerrar a votação <<");
                 break;
+            default:
+                console.clear();
+                console.log("Número inválido");
         }
 
     } while (confirmacaoFinal !== "S" && confirmacaoFinal !== "s");    
@@ -61,8 +73,10 @@ function main() {
             console.log("O candidato é o vencedor!");
         } else if (votoCandidato2 > votoCandidato1 && votoCandidato2 > votoCandidato3) {
             console.log("O candidato 2 é o vencedor!");
-        } else {
+        } else if (votoCandidato3 > votoCandidato1 && votoCandidato3 > votoCandidato2) {
             console.log("O candidato 3 é o vencedor!");
+        } else {
+            console.log("Empate!");
         }
     }
 
@@ -74,5 +88,11 @@ function main() {
         console.log("Votos em BRANCO", " = ", votoEmBranco);
         console.log("Votos NULO", " = ", votoNulo);
         console.log("Total de votos", " = ", totalVotos);   
+    }
+
+    function audioConfirmacao() {
+        let audio = new Audio("confirma-urna.mp3");
+
+        audio.play();
     }
 }
