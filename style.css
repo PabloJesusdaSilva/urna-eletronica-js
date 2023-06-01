@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 150px;
+    height: 60px;
+    margin-top: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(61, 123, 238);
+    color: #fff;
+    cursor: pointer;
+}
