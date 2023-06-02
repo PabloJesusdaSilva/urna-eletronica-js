@@ -86,11 +86,11 @@ function main() {
     // Função que define o vencedor
     function candidatoVencedor() {
         if (votoCandidato1 > votoCandidato2 && votoCandidato1 > votoCandidato3) {
-            window.alert("O candidato " + primeiroCandidato + " é o vencedor!");
+            window.alert(primeiroCandidato + " é o vencedor!");
         } else if (votoCandidato2 > votoCandidato1 && votoCandidato2 > votoCandidato3) {
-            window.alert("O candidato " + segundoCandidato + " é o vencedor!");
+            window.alert(segundoCandidato + " é o vencedor!");
         } else if (votoCandidato3 > votoCandidato1 && votoCandidato3 > votoCandidato2) {
-            window.alert("O candidato " + terceiroCandidato + " é o vencedor!");
+            window.alert(terceiroCandidato + " é o vencedor!");
         } else {
             window.alert("Empate!");
         }
@@ -98,7 +98,7 @@ function main() {
 
     // função que calcula o percentual de cada candidato
     function percentual() {
-        window.alert(">> VOTAÇÃO ENCERRADA << \n" 
+        window.alert("--- VOTAÇÃO ENCERRADA ---\n\n" 
                     + "Votos do candidato " + primeiroCandidato + " = " + votoCandidato1 + " " + Math.round((votoCandidato1 / totalVotos) * 100) + "%\n"
                     + "Votos do candidato " + segundoCandidato + " = " + votoCandidato2 + " " + Math.round((votoCandidato1 / totalVotos) * 100) + "%\n"
                     + "Votos do candidato " + terceiroCandidato + " = " + votoCandidato3 + " " + Math.round((votoCandidato3 / totalVotos) * 100) + "%\n"
