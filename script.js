@@ -7,7 +7,7 @@ function main() {
         votoEmBranco = 0,
         votoNulo = 0,
         totalVotos = 0,
-        senha = parseInt(prompt("Crie uma senha: ")),
+        senha,
         primeiroCandidato,
         segundoCandidato,
         terceiroCandidato,
@@ -18,6 +18,7 @@ function main() {
         
     // do while responsável por iniciar a votação    
     do {
+        senha = parseInt(prompt("Crie uma senha: "))
         primeiroCandidato = prompt("Digite o nome do primeiro candidato: ");
         segundoCandidato = prompt("Digite o nome do segundo candidato: ");
         terceiroCandidato = prompt("Digite o nome do terceiro candidato: ");
@@ -30,7 +31,7 @@ function main() {
 
     // do while responsável por contar os votos
     do {
-        codigoVoto = prompt("| 1 | " + primeiroCandidato + "\n| 2 | " + segundoCandidato + "\n| 3 | " + terceiroCandidato + "\n| 5 | Voto em branco \n| 8 | Voto nulo \n\nDigite a sua senha para encerrar a votação!" + "\nDigite o número do seu candidato: ");
+        codigoVoto = prompt("| 1 | " + primeiroCandidato + "\n| 2 | " + segundoCandidato + "\n| 3 | " + terceiroCandidato + "\n| 5 | Voto em branco \n| 8 | Voto nulo \n\nDigite a sua senha para encerrar a votação!" + "\n\nDigite o número do seu candidato: ");
         
         if (codigoVoto !== null) {
             codigoVoto = parseInt(codigoVoto);
@@ -76,7 +77,6 @@ function main() {
                 console.clear();
                 window.alert("NÚMERO INVÁLIDO");
         }
-
     } while (confirmacaoFinal !== "S" && confirmacaoFinal !== "s");    
 
     console.clear();
@@ -123,6 +123,6 @@ function main() {
         let dataAtual = new Date().toLocaleDateString();
         let horaAtual = new Date().toLocaleTimeString();
 
-        return dataAtual + " " + horaAtual;
+        return "Data: " + dataAtual + "\nHora: " + horaAtual;
     }
 }
