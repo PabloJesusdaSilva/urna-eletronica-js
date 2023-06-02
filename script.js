@@ -104,7 +104,6 @@ function main() {
                     + "\n\nVotos do candidato " + primeiroCandidato + " = " + votoCandidato1 + " " + Math.round((votoCandidato1 / totalVotos) * 100) + "%\n"
                     + "Votos do candidato " + segundoCandidato + " = " + votoCandidato2 + " " + Math.round((votoCandidato1 / totalVotos) * 100) + "%\n"
                     + "Votos do candidato " + terceiroCandidato + " = " + votoCandidato3 + " " + Math.round((votoCandidato3 / totalVotos) * 100) + "%\n"
-                    + "Votos do candidato " + terceiroCandidato + " = " + votoCandidato3 + " " + Math.round((votoCandidato3 / totalVotos) * 100) + "%\n"
                     + "Votos em BRANCO" + " = " + votoEmBranco   + "\n" 
                     + "Votos NULO" + " = " + votoNulo + "\n"
                     + "Total de votos" + " = " + totalVotos + "\n\n"
