@@ -7,15 +7,27 @@ function main() {
         votoEmBranco = 0,
         votoNulo = 0,
         totalVotos = 0,
-        senha = parseInt(prompt("Crie uma senha: ")),
-        primeiroCandidato = prompt("Digite o nome do primeiro candidato: "),
-        segundoCandidato = prompt("Digite o nome do segundo candidato: "),
-        terceiroCandidato = prompt("Digite o nome do terceiro candidato: "),
+        senha,
+        primeiroCandidato,
+        segundoCandidato,
+        terceiroCandidato,
+        confirmaInicio,
         confirmacaoFinal;
         
+    // do while responsável por iniciar a votação    
     do {
-        console.log("| 1 |", primeiroCandidato, "\n| 2 |", segundoCandidato, "\n| 3 |", terceiroCandidato, "\n| 5 | Voto em branco \n| 8 | Voto nulo \n| 0 | Encerrar a votação\n");
-        codigoVoto = prompt("Digite o número do seu candidato: ");
+        senha = parseInt(prompt("Crie uma senha: "));
+        primeiroCandidato = prompt("Digite o nome do primeiro candidato: ");
+        segundoCandidato = prompt("Digite o nome do segundo candidato: ");
+        terceiroCandidato = prompt("Digite o nome do terceiro candidato: ");
+        confirmaInicio = prompt("Deseja iniciar a votação? (S) (N)")
+
+    }  while (confirmaInicio !== "S" && confirmaInicio !== "s");
+
+    // do while responsável por contar os votos
+    do {
+        console.log("| 1 |", primeiroCandidato, "\n| 2 |", segundoCandidato, "\n| 3 |", terceiroCandidato, "\n| 5 | Voto em branco \n| 8 | Voto nulo \n\nDigite a sua senha para encerrar a votação!");
+        codigoVoto = setTimeout(prompt("Digite o número do seu candidato: "), 500);
         
         if (codigoVoto !== null) {
             codigoVoto = parseInt(codigoVoto);
@@ -42,13 +54,13 @@ function main() {
                 totalVotos++;
                 setTimeout(audioConfirmacao(), 500);
                 break;
-            case 8:
+            case 5:
                 console.clear();
                 votoEmBranco++;
                 totalVotos++;
                 setTimeout(audioConfirmacao(), 500);
                 break;
-            case 0:
+            case 8:
                 console.clear();
                 votoNulo++;
                 totalVotos++;
@@ -68,18 +80,20 @@ function main() {
     percentual();
     candidatoVencedor();
 
+    // Função que define o vencedor
     function candidatoVencedor() {
         if (votoCandidato1 > votoCandidato2 && votoCandidato1 > votoCandidato3) {
-            console.log("O candidato é o vencedor!");
+            console.log("O candidato", primeiroCandidato, "é o vencedor!");
         } else if (votoCandidato2 > votoCandidato1 && votoCandidato2 > votoCandidato3) {
-            console.log("O candidato 2 é o vencedor!");
+            console.log("O candidato", segundoCandidato, "é o vencedor!");
         } else if (votoCandidato3 > votoCandidato1 && votoCandidato3 > votoCandidato2) {
-            console.log("O candidato 3 é o vencedor!");
+            console.log("O candidato", terceiroCandidato, "é o vencedor!");
         } else {
             console.log("Empate!");
         }
     }
 
+    // função que calcula o percentual de cada candidato
     function percentual() {
         console.log(">> VOTAÇÃO ENCERRADA <<");
         console.log("Votos do candidato ", primeiroCandidato, " = ", votoCandidato1, Math.round((votoCandidato1 / totalVotos) * 100), "%");
@@ -87,9 +101,10 @@ function main() {
         console.log("Votos do candidato ", terceiroCandidato, " = ", votoCandidato3, Math.round((votoCandidato3 / totalVotos) * 100), "%");
         console.log("Votos em BRANCO", " = ", votoEmBranco);
         console.log("Votos NULO", " = ", votoNulo);
-        console.log("Total de votos", " = ", totalVotos);   
+        console.log("Total de votos", " = ", totalVotos, "\n");   
     }
 
+    // função para adicionar audio a cada voto
     function audioConfirmacao() {
         let audio = new Audio("confirma-urna.mp3");
 
