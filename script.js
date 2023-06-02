@@ -26,8 +26,7 @@ function main() {
 
     }  while (confirmaInicio !== "S" && confirmaInicio !== "s");
 
-    dataHoraInicio = dataHora();
-    window.alert(dataHoraInicio);
+    dataHoraInicio = dataHora()
 
     // do while responsável por contar os votos
     do {
@@ -98,17 +97,18 @@ function main() {
 
     // função que calcula o percentual de cada candidato
     function percentual() {
-        window.alert("--- VOTAÇÃO ENCERRADA ---\n\n" 
-                    + "Votos do candidato " + primeiroCandidato + " = " + votoCandidato1 + " " + Math.round((votoCandidato1 / totalVotos) * 100) + "%\n"
+        dataHoraFim = dataHora();
+
+        window.alert("--- VOTAÇÃO ENCERRADA ---\n" 
+                    + dataHoraInicio 
+                    + "\n\nVotos do candidato " + primeiroCandidato + " = " + votoCandidato1 + " " + Math.round((votoCandidato1 / totalVotos) * 100) + "%\n"
                     + "Votos do candidato " + segundoCandidato + " = " + votoCandidato2 + " " + Math.round((votoCandidato1 / totalVotos) * 100) + "%\n"
                     + "Votos do candidato " + terceiroCandidato + " = " + votoCandidato3 + " " + Math.round((votoCandidato3 / totalVotos) * 100) + "%\n"
                     + "Votos do candidato " + terceiroCandidato + " = " + votoCandidato3 + " " + Math.round((votoCandidato3 / totalVotos) * 100) + "%\n"
                     + "Votos em BRANCO" + " = " + votoEmBranco   + "\n" 
                     + "Votos NULO" + " = " + votoNulo + "\n"
-                    + "Total de votos" + " = " + totalVotos + "\n");
-
-        dataHoraFim = dataHora();
-        window.alert(dataHoraFim);
+                    + "Total de votos" + " = " + totalVotos + "\n\n"
+                    + dataHoraFim);
     }
 
     // função para adicionar audio a cada voto
